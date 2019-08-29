@@ -1,4 +1,4 @@
-# Angular Printing V1
+# Angular Printing V2
 
 This is an example of printing a page.
 
