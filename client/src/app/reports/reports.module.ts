@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 
 import { InvoiceComponent } from './invoice/invoice.component';
 import { ReportsComponent } from './reports.component';
-import { PrintService } from './services/print.service';
+import { PrintService } from '../core/services/print.service';
 
 @NgModule({
   declarations: [ReportsComponent, InvoiceComponent],

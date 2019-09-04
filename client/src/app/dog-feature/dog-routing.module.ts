@@ -1,9 +1,10 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { DogWelcomeComponent } from './dog-welcome/dog-welcome.component';
 import { DogReportComponent } from './dog-report/dog-report.component';
 import { DogFeatureComponent } from './dog-feature.component';
+import { DogNumberReportComponent } from './dog-number-report/dog-number-report.component';
 
 const routes: Routes = [
   {
@@ -11,7 +12,13 @@ const routes: Routes = [
     component: DogFeatureComponent,
     children: [
       { path: 'welcome', component: DogWelcomeComponent },
-      { path: 'report/:dogIds', component: DogReportComponent },
+      {
+        path: 'report',
+        component: DogReportComponent,
+        children: [
+          { path: 'numbers/:dogIds', outlet: 'dogprint', component: DogNumberReportComponent }
+        ]
+      },
       { path: '**', redirectTo: 'welcome', pathMatch: 'full' }
     ]
   }
@@ -23,6 +30,7 @@ const routes: Routes = [
     CommonModule,
     RouterModule.forChild(routes)
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: []
 })
 export class DogRoutingModule { }

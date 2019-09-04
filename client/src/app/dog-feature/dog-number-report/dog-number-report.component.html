@@ -1,0 +1,4 @@
+<div class="dog" *ngFor="let dog of dogIds; let i = index">
+  <h1>Dog Num. {{ dog }} - one per page!!</h1>
+  <p>Amount: {{ (dogDetails[i] | async)?.amount }}</p>
+</div>
